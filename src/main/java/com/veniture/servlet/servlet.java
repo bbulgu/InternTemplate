@@ -56,8 +56,13 @@ public class servlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        Map<String, Object> context = new HashMap<>();;
+        Map<String, Object> context = new HashMap<>();
+
         context.put("key","value");
+        context.put("key1","value1");
+        context.put("key2","value2");
+        context.put("key3","value3");
+
         resp.setContentType("text/html;charset=utf-8");
         templateRenderer.render(LIST_ISSUES_TEMPLATE, context, resp.getWriter());
     }
