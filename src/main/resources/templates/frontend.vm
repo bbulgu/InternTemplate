@@ -23,11 +23,42 @@ Released under the MIT license: http://jsbin.mit-license.org
 
     <script>
         AJS.$(document).ready(function () {
-             AJS.$('#auiTable > tr')
+             AJS.$('auiTable > tr')
         });
     </script>
 </head>
-<body>
-    $key
+
+<body class="page-type-admin">
+<div class="content-container">
+
+
+        #if ($projects.size() > 0)
+            <div class="projects">
+                <table class="aui">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        #foreach( $project in $projects )
+                        <tr>
+                            <td>$project.getName()</td>
+                            <td>
+                                #if($project.getDescription())
+                            $project.getDescription()
+                        #end
+                            </td>
+
+                        </tr>
+                        #end
+                    </tbody>
+                </table>
+            </div>
+        #end
 </body>
 </html>
+
+
